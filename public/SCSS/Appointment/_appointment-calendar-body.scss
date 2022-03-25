@@ -1,0 +1,200 @@
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,700");
+* {
+  padding: 1;
+  margin: 1;
+  text-decoration: none;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f3f3f3;
+  font-family: helvetica;
+}
+
+.body-text{
+    margin-left: 100px;
+    margin-top: 60px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap");
+
+.main {
+  position: absolute;
+  width: 850px;
+  height: 470px;
+  top: 65%;
+  left: 50%;
+  box-sizing: border-box;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+  transition: all 0.195s ease;
+  transform-style: preserve-3d;
+  margin-top: 150px;
+  margin-bottom: 0px;
+}
+.main.is-rotated-left {
+  transform: translate(-50%, -50%) rotateY(-4deg);
+}
+.main.is-rotated-right {
+  transform: translate(-50%, -50%) rotateY(4deg);
+}
+.main .sideb,
+.main .right-wrapper {
+  background-color: #e7e4e4;
+  width: 50%;
+  float: left;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.main .header {
+  padding: 23px 0 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.main .header i {
+  padding: 0 5px;
+  cursor: pointer;
+}
+.main .header span {
+  display: inline-block;
+  margin: 0 3px;
+  font-weight: 750;
+  font-size: 25px;
+}
+.main .right-wrapper {
+  background-color: #1697b7;
+  color: white;
+  transform-origin: left center;
+  transform: rotateY(110deg);
+  transition: all 0.5s;
+}
+.main .right-wrapper.is-active {
+  transform: rotateY(0deg);
+}
+.main .right-wrapper .header {
+  text-align: left;
+  justify-content: center;
+}
+.main .right-wrapper .day {
+  font-size: 14em;
+  text-indent: -12px;
+  display: block;
+}
+.main .right-wrapper .month {
+  font-size: 3em;
+}
+.main .sideb .showDate {
+  color: white;
+  text-align: right;
+  width: 100%;
+}
+.main .sideb .showDate i {
+  cursor: pointer;
+  background: #1697b7;
+  border-radius: 4px;
+  padding: 8px 12px;
+  transform: scale(1);
+  transition: all 0.3s;
+}
+.main .sideb .showDate i.is-active {
+  transform: scale(-1);
+}
+.main .sideb table {
+  text-align: center;
+ 
+  width: 90%;
+  margin: 30px auto 0;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.main .sideb table tbody:before {
+  content: "-";
+  display: block;
+  line-height: 0.8em;
+  color: transparent;
+}
+.main .sideb table th {
+  color: #1697b7;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.main .sideb table td {
+  padding: 11px 5px;
+  color: #ced0ce;
+  font-size: 1em;
+  transition: all 0.3s;
+  position: relative;
+}
+.main .sideb table td::before {
+  content: "";
+  display: none;
+  width: 50%;
+  height: 2px;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -8px);
+  background-color: #f05855;
+}
+.main .sideb table td.currentDay::before {
+  display: block;
+}
+.main .sideb table td.selectable {
+  color: #303633;
+  cursor: pointer;
+}
+.main .sideb table td.selectable:hover {
+  background: #1697b7;
+  color: white;
+}
+.main .sideb table td.between {
+  background-color: #333;
+  color: white;
+}
+.main .sideb table td.active, .main .sideb table td.hover {
+  background: #1697b7;
+  color: white;
+}
+
+.button {
+    background-color: #1697b7;
+    border: none;
+    border-radius: 10px;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    float: right;
+    margin-top: 40%;
+    margin-bottom: 15%;
+    margin-right: 13%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .next-btn {
+    background-color: white; 
+    color: #1697b7; 
+    font-size: 25px;
+    font-weight: bold;
+    padding: 15px 50px 15px;
+    border: 4px solid #1697b7;
+  }
+
+  .next-btn:hover {
+    background-color: #30c3cd;
+    color: white;
+  }
+
+

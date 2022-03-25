@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+      <title>Online Appointment System for Veterinary Services</title>
+
+    <link rel="icon" type="image/x-icon" href="WEBSITE ELEMENTS/logo2.png">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:700,400' rel='stylesheet' type='text/css'>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  
+  
+      <link rel="stylesheet" href="CSS/calendar.css">
+
+  
+</head>
+
+<body>
+
+<!--NAVIGATION BAR-->
+<nav class="navbar">
+    
+    <div class="logo-container"><img src="WEBSITE ELEMENTS/logo2.png"></div>
+    <div class="navbar-title">Online Appointment System for Veterinary Services</div>
+
+    <a href="#" class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </a> 
+
+    <div class="navbar-links">
+        <ul>
+             <li><a href="admin.html">Home</a></li>
+            <li><a href="appointment.html">Appointments</a></li>
+            <li><div class="dropdown">
+                <button class="dropbtn">Records
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="clientrecord.html">Client's Record</a>
+                  <a href="petrecord.html">Pet's Record</a>
+                </div>
+            </div>
+            </li>
+            <li><a href="calendar.html">Announcement</a></li>
+            <li><a href="concern.html">Concerns</a></li>
+            <li><button class= "button nav-button">Logout</button></li>
+        </ul>  
+    </div>   
+        
+</nav>
+
+ <p class="body-text">CLINIC CALENDAR</p>
+  
+  <html ng-app='calendarApp' ng-cloak='true'></html>
+<div class='calendar' ng-controller='calendarController as calendar'>
+  <div class='calendar_left'>
+    <div class='header'>
+      <i class='material-icons' ng-click='calendar.prev()'>navigate_before</i>
+      <h1>{{calendar.month}}</h1>
+      <i class='material-icons' ng-click='calendar.next()'>navigate_next</i>
+    </div>
+    <div class='days'>
+      <div class='day_item'>Mon</div>
+      <div class='day_item'>Tue</div>
+      <div class='day_item'>Wed</div>
+      <div class='day_item'>Thu</div>
+      <div class='day_item'>Fri</div>
+      <div class='day_item'>Sat</div>
+      <div class='day_item'>Sun</div>
+    </div>
+    <div class='dates'></div>
+  </div>
+  <div class='calendar_right'>
+    <div class='list'>
+      <ul>
+        <li class='bounce-in' ng-repeat='events in calendar.events' ng-show='events.id === calendar.dataId'>
+          <span class='type'>It's a {{ events.type }} thing -</span>
+          <span class='description'>{{ events.description }}</span>
+        </li>
+      </ul>
+    </div>
+    <form ng-submit='calendar.add()'>
+      <input ng-model='calendar.description' placeholder='Enter a task for this day' type='text'>
+        <select ng-model='calendar.type' placeholder='calendar.type'>
+          <option value='Social'>Social</option>
+          <option value='Work'>Work</option>
+        </select>
+      </input>
+    </form>
+  </div>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://code.angularjs.org/1.3.14/angular-animate.js'></script>
+
+    <script src="JS/calendar.js"></script>
+
+</body>
+
+
+<!--FOOTER-->
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+            <div class="footer-pic"><img src="WEBSITE ELEMENTS/logo2.png"></div>
+            <h3>Online Veterinary Appointment System</h3>
+
+
+           
+        </div>
+    </footer>
+
+
+</body>
+</html>
+</html>

@@ -1,0 +1,80 @@
+.reason-col{
+
+    width: 80%;
+    margin: 1rem auto;
+    display: table;
+    margin-top: -40px;
+
+    .reason-text{
+        margin-left: 100px;
+        margin-top: 80px;
+        font-size: 40px;
+    }
+    
+    #reason-menu{
+        width: 80%;
+        padding: 10px 20px 10px;
+        line-height: 10px;
+        font-size: 40px;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-left: 100px;
+        border-radius: 10px;
+        color: #e8804c;
+
+        }
+
+    .default{
+        color: #999;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .options{
+        color: #f3ad78;
+    }
+}
+
+
+#detailed-reason{
+    width: 64%;
+    height: 200px;
+    padding: 10px 20px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 14.40%;
+    border-radius: 10px;
+    color: #212121;
+}
+
+.button {
+    background-color: #1697b7;
+    border: none;
+    border-radius: 10px;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    float: right;
+    margin-top: 5%;
+    margin-bottom: 15%;
+    margin-right: 13%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .next-btn {
+    background-color: white; 
+    color: #1697b7; 
+    font-size: 25px;
+    font-weight: bold;
+    padding: 15px 50px 15px;
+    border: 4px solid #1697b7;
+  }
+
+  .next-btn:hover {
+    background-color: #30c3cd;
+    color: white;
+  }
+

@@ -1,0 +1,141 @@
+.first-pic-container img{
+
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.second-pic-container img{
+
+    max-width: 100%;
+    height: auto;
+    margin-bottom: auto;
+    padding: 40px;
+    cursor: pointer;
+}
+
+.third-pic-container img{
+
+  max-width: 100%;
+  height: auto;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.fourth-pic-container img{
+
+  max-width: 100%;
+  height: auto;
+  margin-bottom: -140px;
+  margin-top: -30px;
+  padding: 100px;
+}
+
+.btn-group{
+    width: 100%;
+    border: none;
+
+  .button {
+      font-family: Helvetica;
+      font-size: 27px;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      background-color: white; 
+      border: 5px solid #e8804c;
+      color: #e8804c; 
+      padding: 20px; 
+      float: left;
+      width: 25rem;
+      border-radius: 10px;
+      margin: 25px 22px;
+      cursor: pointer;
+  }
+}
+
+  .button:hover {
+    background-color: #f3ad78;
+      color: white;
+  }
+  
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup {
+    margin: 100px auto;
+    margin-top: 100px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 80%;
+    position: relative;
+    transition: all 5s ease-in-out;
+
+    .content{
+      line-height: 1.8;
+      font-size: 20px;
+
+      .ul-diarrhea{
+        list-style-type: circle;
+
+      }
+
+      mark{
+        background-color: #e8804c;
+        color: white;
+        padding: 3px;
+      }
+    }
+  }
+  
+  .popup h2 {
+    margin-top: 5px;
+    color: #e8804c;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #858585b4;
+  }
+  .popup .close:hover {
+    color: #212121;
+  }
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+  }
+  
+  @media screen and (max-width: 700px){
+    .box{
+      width: 70%;
+    }
+    .popup{
+      width: 70%;
+    }
+  }

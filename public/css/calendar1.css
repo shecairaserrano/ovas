@@ -1,0 +1,362 @@
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,700");
+* {
+  padding: 1;
+  margin: 1;
+  text-decoration: none;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: white;
+}
+
+.brand-img img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60px;
+  height: 80px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 60px;
+  cursor: pointer;
+}
+
+.brand-title {
+  display: inline-block;
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: -50px;
+  color: black;
+}
+
+.navbar-links ul {
+  float: right;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar-links li {
+  list-style: none;
+}
+
+.navbar-links a {
+  color: #1697b7;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1rem;
+  display: block;
+}
+
+a.active,
+a:hover {
+  color: #30c3cd;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.nav-button {
+  color: white;
+  background-color: #ff0000;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 20px;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+
+.dropdown {
+  float: left;
+  
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+}
+
+.dropdown .dropbtn {
+ color: #1697b7;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: inherit;
+  padding: 1rem;
+  display: block;
+    margin: 0;
+    outline: none;
+    border: none;
+
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+   min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+
+}
+
+.dropdown-content a {
+  float: none;
+  color: #1697b7;
+  padding: 6px 10px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.body-text {
+  color: #212121;
+  font-size: 48px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 40px 130px;
+  text-align: left;
+}
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap");
+
+ 
+.main {
+  position: absolute;
+  width: 850px;
+  height: 470px;
+  top: 65%;
+  left: 50%;
+  box-sizing: border-box;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+  transition: all 0.195s ease;
+  transform-style: preserve-3d;
+}
+.main.is-rotated-left {
+  transform: translate(-50%, -50%) rotateY(-4deg);
+}
+.main.is-rotated-right {
+  transform: translate(-50%, -50%) rotateY(4deg);
+}
+.main .sideb,
+.main .right-wrapper {
+  background-color: #e7e4e4;
+  width: 50%;
+  float: left;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.main .header {
+  padding: 23px 0 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.main .header i {
+  padding: 0 5px;
+  cursor: pointer;
+}
+.main .header span {
+  display: inline-block;
+  margin: 0 3px;
+  font-weight: 750;
+  font-size: 25px;
+}
+.main .right-wrapper {
+  background-color: #1697b7;
+  color: white;
+  transform-origin: left center;
+  transform: rotateY(110deg);
+  transition: all 0.5s;
+}
+.main .right-wrapper.is-active {
+  transform: rotateY(0deg);
+}
+.main .right-wrapper .header {
+  text-align: left;
+  justify-content: center;
+}
+.main .right-wrapper .day {
+  font-size: 14em;
+  text-indent: -12px;
+  display: block;
+}
+.main .right-wrapper .month {
+  font-size: 3em;
+}
+.main .sideb .showDate {
+  color: white;
+  text-align: right;
+  width: 100%;
+}
+.main .sideb .showDate i {
+  cursor: pointer;
+  background: #1697b7;
+  border-radius: 4px;
+  padding: 8px 12px;
+  transform: scale(1);
+  transition: all 0.3s;
+}
+.main .sideb .showDate i.is-active {
+  transform: scale(-1);
+}
+.main .sideb table {
+  text-align: center;
+ 
+  width: 90%;
+  margin: 30px auto 0;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.main .sideb table tbody:before {
+  content: "-";
+  display: block;
+  line-height: 0.8em;
+  color: transparent;
+}
+.main .sideb table th {
+  color: #1697b7;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.main .sideb table td {
+  padding: 11px 5px;
+  color: #ced0ce;
+  font-size: 1em;
+  transition: all 0.3s;
+  position: relative;
+}
+.main .sideb table td::before {
+  content: "";
+  display: none;
+  width: 50%;
+  height: 2px;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -8px);
+  background-color: #f05855;
+}
+.main .sideb table td.currentDay::before {
+  display: block;
+}
+.main .sideb table td.selectable {
+  color: #303633;
+  cursor: pointer;
+}
+.main .sideb table td.selectable:hover {
+  background: #1697b7;
+  color: white;
+}
+.main .sideb table td.between {
+  background-color: #333;
+  color: white;
+}
+.main .sideb table td.active, .main .sideb table td.hover {
+  background: #1697b7;
+  color: white;
+}
+
+
+
+
+
+
+
+/* FOOTER */
+* {
+  padding: 0;
+  margin: 0;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+}
+@media (max-height: 800px) {
+  footer {
+    position: static;
+  }
+  header {
+    padding-top: 40px;
+  }
+}
+.footer-pic img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60px;
+  height: 60px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 220px;
+  cursor: pointer;
+}
+.footer-distributed {
+  background-color: #f3ad78;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  font: bold 16px helvetica;
+  padding: 50px 50px 50px 50px;
+  margin-top: 600px;
+}
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right {
+  display: inline-block;
+  vertical-align: top;
+}
+.footer-distributed .footer-left {
+  width: 35%;
+}
+
+body {
+  background-color: #f3f3f3;
+  font-family: helvetica;
+}
