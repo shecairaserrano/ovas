@@ -36,7 +36,7 @@
 <!--BODY CONTAINER-->
     <div class="reason-col">
 
-        <h1 class="reason-text">What is the reason for [pet's name]'s vist?</h1>
+        <h1 class="reason-text">What is the reason for <b id="pet_name"></b>'s vist?</h1>
 
         <select id="reason-menu" name="reason-menu">
             <option value="" disabled selected class="default">Select reason</option>
