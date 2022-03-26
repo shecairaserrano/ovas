@@ -16,7 +16,7 @@ class CreatePetsTable extends Migration
         Schema::create('pets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->integer('age');
+            $table->string('age');
             $table->string('gender');
             $table->string('breed');
             $table->date('appointment_date');

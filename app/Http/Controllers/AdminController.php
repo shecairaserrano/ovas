@@ -175,7 +175,19 @@ class AdminController extends Controller
        $find_appointment = Appointment::find($id);
        if($find_appointment)
        {
+        
+
+        $pet = new Pet;
+        $pet->name = $find_appointment->pet_name ;
+        $pet->age = $find_appointment->pet_age ;
+        $pet->gender = $find_appointment->pet_gender ;
+        $pet->breed = $find_appointment->breed ;
+        $pet->appointment_date = $find_appointment->date ;
+        $pet->reason = $find_appointment->reason ;
+        $pet->save();
+
         $find_appointment->update(['status_name'=> 'accepted']);
+
         return back()->with('success',' Appointment Accepted Successfully');
        } 
     }
