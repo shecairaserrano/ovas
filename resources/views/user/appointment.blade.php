@@ -104,7 +104,11 @@
     </body>
     <script type="text/javascript">
         $(document).ready(function(){
+            
+            var segment = "{{Request::segment(3)}}";
 
+            window.localStorage.setItem("groom_package", JSON.stringify(segment));
+            
             $(".button").click(function(){
 
                 var pet_name = $("#pet-name").val();
@@ -118,6 +122,7 @@
                 }
 
                 window.localStorage.setItem("pet", JSON.stringify(pet));
+                
             });
         });
     </script>

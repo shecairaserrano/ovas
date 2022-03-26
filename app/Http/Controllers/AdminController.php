@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Pet;
 use App\User;
+use App\Appointment;
+
 
 class AdminController extends Controller
 {
@@ -154,7 +156,8 @@ class AdminController extends Controller
 
     public function appointment()
     {
-        return view('admin.appointment');
+        $appointments = Appointment::all();
+        return view('admin.appointment',compact('appointments'));
     }
 
     public function announcement()
@@ -165,6 +168,26 @@ class AdminController extends Controller
     public function concern()
     {
         return view('admin.concern');
+    }
+
+    public function appointment_accept($id)
+    {
+       $find_appointment = Appointment::find($id);
+       if($find_appointment)
+       {
+        $find_appointment->update(['status_name'=> 'accepted']);
+        return back()->with('success',' Appointment Accepted Successfully');
+       } 
+    }
+
+    public function appointment_decline($id)
+    {
+        $find_appointment = Appointment::find($id);
+       if($find_appointment)
+       {
+        $find_appointment->delete();
+        return back()->with('success',' Appointment Deleted Successfully');
+       } 
     }
 
 

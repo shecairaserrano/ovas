@@ -24,82 +24,45 @@
 </form>
  
 <table class="one">  
-    <tr>
+    <thead>
     <th>Name</th>
     <th>Pet's Name</th> 
     <th>Reason</th>
     <th>Status</th>
     <th>Booked on</th>
-  </tr>
+    <th>Actions</th>
+  </thead>
+
+  @foreach($appointments as $appoint)
   <tr>
     <td>Jen</td>
-    <td>Primo</td> 
-    <td>Cuteness</td>
-     <td>Complete</td>
-      <td>2/22/22</td>
+    <td>{{$appoint->pet_name}}</td> 
+    <td>
+        @if($appoint->reason == null)
+            {{$appoint->reason_menu}}
+        @else
+            {{$appoint->reason}}
+        @endif
+    </td>
+     <td>{{strtoupper($appoint->status_name)}}</td>
+     <td>{{$appoint->date}}</td>
+     <td>
+        @if($appoint->status_name == 'pending')
+             <a href="{{route('appointment_accept', $appoint->id)}}" style="color: green;">Accept</a>
+            <a href="{{route('appointment_decline', $appoint->id)}}" style="color: red">Decline</a>
+       @else
+       N/A     
+       
+        @endif
+        
+     </td>
   </tr>
-  <tr>
-    <td>Bondoy</td>
-    <td>Loki</td> 
-    <td>Cuteness</td>
-     <td>Complete</td>
-      <td>2/22/22</td>
-  </tr>
-    <tr>
-    <td>Rish</td>
-    <td>Chevy</td> 
-    <td>Cutie</td>
-     <td>Complete</td>
-      <td>2/22/22</td>
-  </tr>
-    <tr>
-    <td>She</td>
-    <td>Hailey</td> 
-    <td>Cuteness</td>
-     <td>Complete</td>
-      <td>2/22/22</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td> 
-    <td></td>
-     <td></td>
-      <td></td>
-  </tr>
-    <tr>
-    <td></td>
-    <td></td> 
-    <td></td>
-     <td></td>
-      <td></td>
-  </tr>
-   <tr>
-    <td></td>
-    <td></td> 
-    <td></td>
-     <td></td>
-      <td></td>
-  </tr>
-   <tr>
-    <td></td>
-    <td></td> 
-    <td></td>
-     <td></td>
-      <td></td>
-  </tr>
-   <tr>
-    <td></td>
-    <td></td> 
-    <td></td>
-     <td></td>
-      <td></td>
-  </tr>
+  
+  @endforeach
 </table>
  
 
-   <a href="#" class="previous">&laquo; Previous</a>
-<a href="#" class="next">Next &raquo;</a>
-
+   
    </body>
 <!--FOOTER-->
 
@@ -116,4 +79,10 @@
 
 
 </body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    @if(Session::has('success'))
+        swal("Success", "{{Session::get('success')}}", "success");
+    @endif
+</script>
 </html>

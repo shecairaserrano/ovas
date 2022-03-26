@@ -20,8 +20,8 @@ class CreateAppointmentsTable extends Migration
             $table->string('pet_gender');
             $table->string('breed');
             $table->string('type');
-            $table->string('reason_menu');
-            $table->string('reason');
+            $table->string('reason_menu')->nullable();
+            $table->string('reason')->nullable();
             $table->date('date');
             $table->integer('queue_number');
             $table->string('status_name');

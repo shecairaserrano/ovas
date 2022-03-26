@@ -119,4 +119,14 @@ class UserController extends Controller
 
         return response()->json( ['message'=> 'success','date'=> $pet['date'],'queue'=> $queue_number,'status'=> 200] );
     }
+
+    public function appointment_first_groom()
+    {
+       return view('user.appointment');
+    }
+
+    public function grooming_confirmation()
+    {
+        return view('user.grooming_confirmation');
+    }
 }

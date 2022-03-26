@@ -70,6 +70,11 @@ Route::group(['prefix'=> 'admin'], function(){
     //concern
     Route::get('/concern','AdminController@concern')->name('concern');
 
+    //appointment actions
+    Route::get('/appointment-accept/{id}','AdminController@appointment_accept')->name('appointment_accept');
+    Route::get('/appointment-decline/{id}','AdminController@appointment_decline')->name('appointment_decline');
+
+
 });
 
 Route::group(['prefix' => 'client'], function(){
@@ -88,5 +93,9 @@ Route::group(['prefix' => 'client'], function(){
     Route::get('/calendar','UserController@calendar')->name('calendar');
     Route::get('/confirmation','UserController@confirmation')->name('confirmation');
     Route::post('/appointment','UserController@set_appointment')->name('set_appointment');
+
+    //Grooming
+    Route::get('/appointment/{name}','UserController@appointment_first_groom')->name('appointment_first_groom');
+    Route::get('/grooming-confirmation','UserController@grooming_confirmation')->name('grooming_confirmation');
 
 });

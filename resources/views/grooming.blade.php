@@ -9,6 +9,7 @@
     <link rel="icon" type="image/x-icon" href="{{URL::to('WEBSITE ELEMENTS/brand-logo.png')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
 
@@ -25,10 +26,14 @@
 
 <div class="row-body-images">
     <div class="column-body-images">
-      <img src="WEBSITE ELEMENTS/pic/grooming-complete-image.png">
+      <a href="{{route('appointment_first_groom',['name'=> 'complete'])}}">
+          <img src="WEBSITE ELEMENTS/pic/grooming-complete-image.png">
+      </a>
     </div>
     <div class="column-body-images">
-      <img src="WEBSITE ELEMENTS/pic/grooming-basic-image.png">
+      <a href="{{route('appointment_first_groom',['name'=> 'basic'])}}">
+          <img src="WEBSITE ELEMENTS/pic/grooming-basic-image.png">
+      </a>
     </div>
 </div>
 
@@ -45,56 +50,56 @@
         <ul class="service-list">
          <li>
             <label class="container">Nail Trim and Filling - 75 Php
-              <input type="checkbox">
+              <input type="checkbox" value="Nail Trim and Filling - 75 Php">
               <span class="checkmark"></span>
             </label>
          </li>
           
          <li>
             <label class="container">Teeth Brushing - 75 Php
-              <input type="checkbox">
+              <input type="checkbox" value="Teeth Brushing - 75 Php">
               <span class="checkmark"></span>
             </label>
          </li>
           
          <li>
             <label class="container">Ear Cleaning - 75 Php
-              <input type="checkbox">
+              <input type="checkbox" value="Ear Cleaning - 75 Php">
               <span class="checkmark"></span>
             </label>
          </li>
           
          <li>
             <label class="container">Eye Wash - 75 Php
-              <input type="checkbox">
+              <input type="checkbox" value="Eye Wash - 75 Php">
               <span class="checkmark"></span>
             </label>
          </li>
           
           <li>
             <label class="container">Facial Trimming - 150 Php
-              <input type="checkbox">
+              <input type="checkbox" value="Facial Trimming - 150 Php">
               <span class="checkmark"></span>
             </label>
          </li>
           
          <li>
             <label class="container">Anal Drain - 150 Php
-              <input type="checkbox">
+              <input type="checkbox" value="Anal Drain - 150 Php">
               <span class="checkmark"></span>
             </label>
          </li>
 
          <li>
             <label class="container">De-matting - 150 Php
-              <input type="checkbox">
+              <input type="checkbox" value="De-matting - 150 Php">
               <span class="checkmark"></span>
             </label>
          </li>
 
          <li>
             <label class="container">Bath and Blow Dry - 200 Php
-              <input type="checkbox">
+              <input type="checkbox" value="Bath and Blow Dry - 200 Php">
               <span class="checkmark"></span>
             </label>
          </li>
@@ -107,7 +112,7 @@
    
 <!--BOOK NOW BUTTON FOR INDIVIDUAL SERVICES-->
   <div class="btn-container">
-    <button class="btn-indivserv">BOOK NOW</button>
+    <a href="{{route('appointment_first_groom',['name'=> 'Individual'])}}"><button class="btn-indivserv">BOOK NOW</button></a>
   </div>
 
 <!--FOOTER-->
@@ -156,6 +161,30 @@
         </div>
     </div>
 </footer>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var individual_list = [];
+
+        $('input[type="checkbox"]').change(function() {
+            var package_val = $(this).val();
+            if($(this).is(":checked")) {
+                
+                individual_list.push(package_val);
+            }else {
+                individual_list.forEach(function(item, index){
+                    if(item == package_val) {
+                        individual_list.splice(index, 1);
+                    }
+                });
+            }
+
+            window.localStorage.setItem("individual_package", JSON.stringify(individual_list));
+               
+        });
+
+    });
+</script>
 
 
 </body>

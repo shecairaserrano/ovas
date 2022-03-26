@@ -29,7 +29,7 @@
         <a href="javascript:javascript:history.go(-1)"><i class="fa fa-chevron-left" 
             style="font-size: 50px; color: #1697b7; cursor: pointer; padding: 30px 20px 10px;"></i></a>
 
-        <a href="Services.html"><i class="fa fa-remove"
+        <a href="{{url('/service')}}"><i class="fa fa-remove"
             style="float: right; font-size: 50px;  color: #1697b7; cursor: pointer; padding: 30px 20px 10px;"></i></a>
     </div>
 
@@ -67,7 +67,12 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-      
+        var groom = JSON.parse(window.localStorage.getItem("groom_package"));
+        if(groom){
+
+             $("a").attr("href", "{{route('calendar')}}")
+        }
+        
 
         var pet = JSON.parse(window.localStorage.getItem("pet"));
         $("#pet_name").text(pet.pet_name);

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Online Appointment System for Veterinary Services</title>
     <link rel="stylesheet" href="{{URL::to('css/homepage.css')}}">
-    <link rel="stylesheet" href="{{URL::to('CSS/appointment-confirmation.css')}}">
+    <link rel="stylesheet" href="{{URL::to('CSS/appointment-confirmation-grooming.css')}}">
     <link rel="icon" type="image/x-icon" href="{{URL::to('/WEBSITE ELEMENTS/brand-logo.png')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -17,7 +17,7 @@
     <nav class="navigation-bar">
         <div class="logo-container">
             <div>
-                <a href="{{url('/')}}"><img src="{{URL::to('/WEBSITE ELEMENTS/brand-logo.png')}}"></a>
+                <a href="Homepage.html"><img src="{{URL::to('/WEBSITE ELEMENTS/brand-logo.png')}}"></a>
             </div>
             <div class="nav-title-page">
                 <p>Online Veterinary Appointment System</p>
@@ -29,7 +29,7 @@
         <a href="javascript:javascript:history.go(-1)"><i class="fa fa-chevron-left" 
             style="font-size: 50px; color: #1697b7; cursor: pointer; padding: 30px 20px 10px;"></i></a>
 
-        <a href="{{url('/service')}}"><i class="fa fa-remove"
+        <a href="{{url('service')}}"><i class="fa fa-remove"
             style="float: right; font-size: 50px;  color: #1697b7; cursor: pointer; padding: 30px 20px 10px;"></i></a>
     </div>
 
@@ -62,12 +62,12 @@
       <input type="text" class="pet-output" name="pet-date" id="date">
 
     <!--REASON-->
-    <h1 class="label-text">Reason</h1>
-      <input type="text" class="pet-output" name="pet-reason" id="reason_menu">
+    <h1 class="label-text">Package</h1>
+      <input type="text" class="pet-output" name="pet-package" id="package">
 
     <!--DETAILED REASON INFORMATION-->
-    <h1 class="label-text">Detailed reason info</h1>
-      <textarea type="text" class="pet-detailed-reason" name="pet-detailed-reason" id="reason"></textarea>
+    <h1 class="label-text">Individual Services</h1>
+      <textarea type="text" class="pet-individual-services" name="pet-individual-services" id="individual"></textarea>
 
     </div>
 </div>
@@ -76,7 +76,6 @@
     
 <button class="button submit-btn submit">Submit</button>
 </body>
-
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script type="text/javascript">
@@ -86,20 +85,36 @@
 
         var pet = JSON.parse(window.localStorage.getItem("pet"));
 
+        var groom = JSON.parse(window.localStorage.getItem("groom_package"));
+        if(groom){
+
+             $("#package").val(groom);
+             pet['reason_menu'] = groom;
+        }
+
+        var individual = JSON.parse(window.localStorage.getItem("individual_package"));
+        if(individual){
+
+             $("#individual").val(individual);
+             pet['reason'] = individual.toString();
+        }
+
+        
+        
+
+
         $("#name").val(pet.pet_name);
         $("#age").val(pet.pet_age);
         $("#gender").val(pet.pet_gender);
         $("#breed").val(pet.breed);
         $("#pet_type").val(pet.type);
-        $("#reason_menu").val(pet.reason_menu);
-        $("#reason").val(pet.reason);
         $("#date").val(pet.date);
 
         $(".submit").click(function(){
            $.ajax({
                type:'POST',
                url:url,
-               data:{_token: token, pet: JSON.parse(window.localStorage.getItem("pet"))},
+               data:{_token: token, pet: pet},
                success:function(data) {
                 console.log(data);
                   if(data.status == 200) {

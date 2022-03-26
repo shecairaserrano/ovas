@@ -83,6 +83,13 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
+
+        var groom = JSON.parse(window.localStorage.getItem("groom_package"));
+        if(groom){
+
+            $("a").attr("href", "{{route('calendar')}}")
+        }
+
         var pet = JSON.parse(window.localStorage.getItem("pet"));
         $("#pet_name").text(pet.pet_name);
 
