@@ -17,7 +17,7 @@
     <nav class="navigation-bar">
         <div class="logo-container">
             <div>
-                <a href="Homepage.html"><img src="{{URL::to('WEBSITE ELEMENTS/brand-logo.png')}}"></a>
+                <a href="{{url('/')}}"><img src="{{URL::to('WEBSITE ELEMENTS/brand-logo.png')}}"></a>
             </div>
             <div class="nav-title-page">
                 <p>Online Veterinary Appointment System</p>
@@ -29,7 +29,7 @@
         <a href="javascript:javascript:history.go(-1)"><i class="fa fa-chevron-left" 
             style="font-size: 50px; color: #1697b7; cursor: pointer; padding: 30px 20px 10px;"></i></a>
 
-        <a href="Services.html"><i class="fa fa-remove"
+        <a href="{{url('/service')}}"><i class="fa fa-remove"
             style="float: right; font-size: 50px;  color: #1697b7; cursor: pointer; padding: 30px 20px 10px;"></i></a>
     </div>
 
