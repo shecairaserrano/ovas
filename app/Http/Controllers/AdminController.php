@@ -22,7 +22,7 @@ class AdminController extends Controller
     {
         $clients =  User::whereHas('roles', function ($query) {
             $query->where('name','=', 'client');
-        })->get();
+        })->paginate(10);
 
         return view('admin.clientrecord',compact('clients'));
     }
@@ -89,7 +89,7 @@ class AdminController extends Controller
 
     public function pet_record()
     {
-        $pets = Pet::all();
+        $pets = Pet::paginate(10);
 
         return view('admin.petrecord',compact('pets'));
     }
@@ -183,7 +183,7 @@ class AdminController extends Controller
         $pet->gender = $find_appointment->pet_gender ;
         $pet->breed = $find_appointment->breed ;
         $pet->appointment_date = $find_appointment->date ;
-        $pet->reason = $find_appointment->reason ;
+        $pet->reason = $find_appointment->reason ? $find_appointment->reason : $find_appointment->reason_menu ;
         $pet->save();
 
         $find_appointment->update(['status_name'=> 'accepted']);

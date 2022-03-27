@@ -113,6 +113,7 @@ class UserController extends Controller
 
         $pet['queue_number'] = $queue_number;
         $pet['status_name'] = 'pending';
+        $pet['user_id'] = Auth::id();
 
 
          Appointment::create($pet);

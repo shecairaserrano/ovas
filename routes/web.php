@@ -8,7 +8,7 @@ Route::get('/', function () {
 
 Route::get('/login', function () {
     return view('register_login');
-});
+})->name('login');
 
 Route::get('/about', function () {
     return view('about');
@@ -37,7 +37,7 @@ Route::get('/urgent', function () {
 Route::post('/login','AuthController@login_check')->name('login_check');
 Route::post('/register','AuthController@register_check')->name('register_check');
 
-Route::group(['prefix'=> 'admin'], function(){
+Route::group(['prefix'=> 'admin','middleware'=> 'auth'], function(){
 
     Route::get('/', function () {
         return view('admin.admin');
@@ -77,7 +77,7 @@ Route::group(['prefix'=> 'admin'], function(){
 
 });
 
-Route::group(['prefix' => 'client'], function(){
+Route::group(['prefix' => 'client','middleware'=> 'auth'], function(){
     Route::get('/profile','UserController@profile')->name('profile');
     Route::get('/profile-settings','UserController@profile_settings')->name('profile_settings');
     Route::get('/logout','UserController@logout')->name('client_logout');

@@ -31,10 +31,10 @@
     
 <div class="row">
   <div class="column">
-    <a href="calendar.html"><img src="{{URL::to('WEBSITE ELEMENTS/admin-announcement.png')}}" style="width:100%"></a>
+    <a href="{{route('announcement')}}"><img src="{{URL::to('WEBSITE ELEMENTS/admin-announcement.png')}}" style="width:100%"></a>
   </div>
   <div class="column">
-    <a href="concern.html"><img src="{{URL::to('WEBSITE ELEMENTS/admin-concerns.png')}}"  style="width:100%"></a>
+    <a href="{{route('concern')}}"><img src="{{URL::to('WEBSITE ELEMENTS/admin-concerns.png')}}"  style="width:100%"></a>
   </div>
 
 </div>

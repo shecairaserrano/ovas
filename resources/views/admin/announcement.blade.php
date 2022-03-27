@@ -38,7 +38,7 @@
     <footer class="footer-distributed">
 
         <div class="footer-left">
-            <div class="footer-pic"><img src="WEBSITE ELEMENTS/logo2.png"></div>
+            <div class="footer-pic"><img src="{{URL::to('WEBSITE ELEMENTS/logo2.png')}}"></div>
             <h3>Online Veterinary Appointment System</h3>
 
 

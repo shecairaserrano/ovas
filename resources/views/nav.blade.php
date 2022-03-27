@@ -1,3 +1,12 @@
+@if(Auth::check())
+
+    @if(Auth::user()->hasRole('admin'))
+        @include('shared.admin_header_nav')
+    @elseif(Auth::user()->hasRole('client'))
+     @include('shared.client_nav')
+    @endif
+@else
+
  <nav class="navigation-bar">
         <div class="logo-container">
             <div>
@@ -29,3 +38,4 @@
             </ul>  
         </div>    
     </nav>
+@endif
