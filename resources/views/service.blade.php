@@ -25,12 +25,12 @@
 
 <!--SURGERY SECTION-->
         <div class="second-pic-container">
-        <a href="Surgery.html"> <img src="WEBSITE ELEMENTS/pic/services-third-image.png"></a>
+        <a href="{{url('/surgery')}}"> <img src="WEBSITE ELEMENTS/pic/services-third-image.png"></a>
         </div>
         
 <!--GROOMING SECTION-->
         <div class="third-pic-container">
-            <a href="Grooming.html"><img src="WEBSITE ELEMENTS/pic/services-second-image.png"></a>
+            <a href="{{url('/grooming')}}"><img src="WEBSITE ELEMENTS/pic/services-second-image.png"></a>
         </div>
 </div>
 
