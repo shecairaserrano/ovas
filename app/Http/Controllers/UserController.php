@@ -17,7 +17,8 @@ class UserController extends Controller
 
     public function profile_settings()
     {
-        return view('user.settings');
+        $appointments = Appointment::where('user_id', Auth::id())->get();
+        return view('user.settings',compact('appointments'));
     }
 
     public function logout()
