@@ -173,6 +173,8 @@ class AdminController extends Controller
     public function appointment_accept($id)
     {
        $find_appointment = Appointment::find($id);
+
+      
        if($find_appointment)
        {
         
@@ -188,6 +190,21 @@ class AdminController extends Controller
 
         $find_appointment->update(['status_name'=> 'accepted']);
 
+        $message = "Dear ".$find_appointment->user->name.", 
+
+        We are pleased to inform you that your booking Queue# ".$find_appointment->queue_number." at ".$find_appointment->date." is confirmed. 
+
+        Booking details:
+
+        ".$find_appointment->pet_name.":
+        Category of service: ".$find_appointment->reason_menu."
+        Reason/Package: ".$find_appointment->reason." Package
+
+        Note: Please visit our clinic within 10 mins. Thank you and keep safe.";
+
+
+        $this->itexmo($find_appointment->user->contact,$message,"ST-SHECA758136_5668P","}6%&dy(icj");
+
         return back()->with('success',' Appointment Accepted Successfully');
        } 
     }
@@ -197,9 +214,36 @@ class AdminController extends Controller
         $find_appointment = Appointment::find($id);
        if($find_appointment)
        {
+        $message = "Dear ".$find_appointment->user->name.",
+
+We are sorry to inform you that your booking  Queue# ".$find_appointment->queue_number." at ".$find_appointment->date." is not accepted for the following details:
+
+- Veterinarian is not available.
+- Have reached maximum appointment per day.
+- Selected wrong date of visit.
+- Admin Error and etc.
+
+Note: You can always go back to our website, go to your account and book a new appointment.";
+
+$this->itexmo($find_appointment->user->contact,$message,"ST-SHECA758136_5668P","}6%&dy(icj");
+
         $find_appointment->delete();
         return back()->with('success',' Appointment Deleted Successfully');
        } 
+    }
+
+    public function itexmo($number,$message,$apicode,$passwd)
+    {
+
+        $ch = curl_init();
+        $itexmo = array('1' => $number, '2' => $message, '3' => $apicode, 'passwd' => $passwd);
+        curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($itexmo));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        echo  curl_exec ($ch);
+        curl_close ($ch); 
+
     }
 
 
